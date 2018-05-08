@@ -13,7 +13,7 @@
 // limitations under the License.
 
 import {writeFileSync} from 'fs';
-import {resolve} from 'path';
+import {dirname, resolve} from 'path';
 import * as yargs from 'yargs';
 
 import {extract} from './extractor';
@@ -34,9 +34,12 @@ if (paths.length < 1) {
 }
 const info = extract(paths);
 const output = pack(info);
+let outDir = argv.output || __dirname;
+if (outDir.includes('.')) {
+  outDir = dirname(outDir);
+}
 
 for (const file of output) {
-  const outDir = argv.output || __dirname;
   const outPath = resolve(outDir, file.name);
   writeFileSync(outPath, file.content);
   console.log(`Written ${outPath}`);
