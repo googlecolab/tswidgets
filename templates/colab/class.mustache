@@ -1,0 +1,19 @@
+"""{{fileDocStr}}"""
+
+from google.colab import html
+
+class {{className}}(html.Element):
+  """{{docStr}}"""
+
+  def __init__(self):
+    super({{className}}, self).__init__('{{#tagName}}{{className}}{{/tagName}}')
+
+  {{#members.methods}}
+  {{#signatures}}
+  {{>method}}
+  {{/signatures}}
+
+  {{/members.methods}}
+  {{#members.properties}}
+  {{>property}}
+  {{/members.properties}}

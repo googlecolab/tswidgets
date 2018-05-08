@@ -1,0 +1,19 @@
+{
+  "name": "tswidgets",
+  "version": "1.0.0",
+  "description": "A tool to convert from TypeScript custom element class to UI Widget classes in other languages.",
+  "main": "tswidgets.js",
+  "dependencies": {
+    "@types/mustache": "^0.8.30",
+    "@types/node": "^9.4.6",
+    "mustache": "^2.3.0",
+    "typescript": "^2.7.2",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "example": "tsc --target es5 tswidgets.ts && node tswidgets.js examples/helloworld.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "Apache-2.0"
+}

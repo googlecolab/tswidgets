@@ -1,0 +1,14 @@
+{{#get}}
+  @property
+  def {{#snakeCase}}{{name}}{{/snakeCase}}(self):
+    """{{#docs.get}}{{docStr}}{{/docs.get}}{{^docs.get}}{{name}} getter.{{/docs.get}}"""
+    return self._get_property('{{name}}')
+{{/get}}
+
+{{#set}}
+  @{{#snakeCase}}{{name}}{{/snakeCase}}.setter
+  def {{#snakeCase}}{{name}}{{/snakeCase}}(self, value):
+    """{{#docs.set}}{{docStr}}{{/docs.set}}{{^docs.set}}{{name}} setter.{{/docs.set}}"""
+    return self._set_property('{{name}}', value)
+
+{{/set}}
