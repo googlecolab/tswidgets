@@ -25,7 +25,7 @@ export const defaultOpts = {
   includeFilters: [] as Array<RegExp|string>
 };
 
-type Options = typeof defaultOpts;
+export type Options = typeof defaultOpts;
 
 let program: ts.Program;
 let checker: ts.TypeChecker;
