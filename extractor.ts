@@ -52,15 +52,15 @@ export function extract(paths: string[], opts?: Partial<Options>) {
   return opts.asJsonString ? JSON.stringify(info, null, 2) : info;
 }
 
-function isWritable(node: ts.Node) {
+function isWritable(node: ts.Declaration) {
   return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Readonly) === 0;
 }
 
-function isExported(node: ts.Node) {
+function isExported(node: ts.Declaration) {
   return (ts.getCombinedModifierFlags(node) & ts.ModifierFlags.Export) === 1;
 }
 
-function isPublic(node: ts.Node) {
+function isPublic(node: ts.Declaration) {
   const flags = ts.getCombinedModifierFlags(node);
   return (
       (flags & ts.ModifierFlags.Private) === 0 &&
